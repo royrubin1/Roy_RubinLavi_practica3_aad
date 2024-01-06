@@ -28,4 +28,30 @@ public class Patrocinador {
             inverseJoinColumns = @JoinColumn(name = "team_id")
         )
 	private ArrayList<Equipo> equipos;
+
+	public Patrocinador(String nombrePatrocinador, ArrayList<Equipo> equipos) {
+		this.nombrePatrocinador = nombrePatrocinador;
+		this.equipos = equipos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getNombrePatrocinador() {
+		return nombrePatrocinador;
+	}
+
+	public void setNombrePatrocinador(String nombrePatrocinador) {
+		this.nombrePatrocinador = nombrePatrocinador;
+	}
+
+	public ArrayList<Equipo> getEquipos() {
+		return equipos;
+	}
+
+	public void setEquipos(ArrayList<Equipo> equipos) {
+		this.equipos = equipos;
+	}
+	
 }

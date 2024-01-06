@@ -21,6 +21,31 @@ public class Temporada {
 	
 	@OneToMany(mappedBy = "season")
 	private ArrayList<Partido> partidos;
+
+	public Temporada(int anoLiga, ArrayList<Partido> partidos) {
+		this.anoLiga = anoLiga;
+		this.partidos = partidos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getAnoLiga() {
+		return anoLiga;
+	}
+
+	public void setAnoLiga(int anoLiga) {
+		this.anoLiga = anoLiga;
+	}
+
+	public ArrayList<Partido> getPartidos() {
+		return partidos;
+	}
+
+	public void setPartidos(ArrayList<Partido> partidos) {
+		this.partidos = partidos;
+	}
 	
 }
 	

@@ -35,4 +35,49 @@ public class Transferencia {
 	@Column(name = "transfer_date")
 	@Temporal(TemporalType.DATE)
 	private Date transferDate;
+
+	public Transferencia(Jugador jugador, Equipo delEquipo, Equipo alEquipo, Date transferDate) {
+		super();
+		this.jugador = jugador;
+		this.delEquipo = delEquipo;
+		this.alEquipo = alEquipo;
+		this.transferDate = transferDate;
+	}
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
+	public Equipo getDelEquipo() {
+		return delEquipo;
+	}
+
+	public void setDelEquipo(Equipo delEquipo) {
+		this.delEquipo = delEquipo;
+	}
+
+	public Equipo getAlEquipo() {
+		return alEquipo;
+	}
+
+	public void setAlEquipo(Equipo alEquipo) {
+		this.alEquipo = alEquipo;
+	}
+
+	public Date getTransferDate() {
+		return transferDate;
+	}
+
+	public void setTransferDate(Date transferDate) {
+		this.transferDate = transferDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+	
 }

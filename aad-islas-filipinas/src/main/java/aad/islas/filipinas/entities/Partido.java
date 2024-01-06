@@ -26,6 +26,30 @@ public class Partido {
 	@ManyToMany
 	@JoinColumn(name = "team_home_id")
 	private Equipo teamHome;
-	
-	
+
+	public Partido(Date matchDate, Equipo teamHome) {
+		super();
+		this.matchDate = matchDate;
+		this.teamHome = teamHome;
+	}
+
+	public Date getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public Equipo getTeamHome() {
+		return teamHome;
+	}
+
+	public void setTeamHome(Equipo teamHome) {
+		this.teamHome = teamHome;
+	}
+
+	public int getId() {
+		return id;
+	}
 }
