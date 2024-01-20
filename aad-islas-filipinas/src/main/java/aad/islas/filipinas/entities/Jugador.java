@@ -1,7 +1,9 @@
 package aad.islas.filipinas.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "player")
@@ -23,14 +27,15 @@ public class Jugador {
 	@Column(name = "nationality")
 	private String nacionalidad;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "birthdate")
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "team_id")
 	private Equipo equipo;
 
-	public Jugador(String nombreJugador, String nacionalidad, Date fechaNacimiento, Equipo equipo) {
+	public Jugador(String nombreJugador, String nacionalidad, LocalDate fechaNacimiento, Equipo equipo) {
 		this.nombreJugador = nombreJugador;
 		this.nacionalidad = nacionalidad;
 		this.fechaNacimiento = fechaNacimiento;
@@ -57,11 +62,11 @@ public class Jugador {
 		this.nacionalidad = nacionalidad;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

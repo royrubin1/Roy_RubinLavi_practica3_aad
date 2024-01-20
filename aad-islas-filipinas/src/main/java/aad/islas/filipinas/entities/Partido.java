@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -23,14 +23,18 @@ public class Partido {
 	@Temporal(TemporalType.DATE)
 	private Date matchDate;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "team_home_id")
 	private Equipo teamHome;
+	
+	@ManyToOne
+	@JoinColumn(name = "season_id")
+	private Temporada season;
 
-	public Partido(Date matchDate, Equipo teamHome) {
-		super();
-		this.matchDate = matchDate;
-		this.teamHome = teamHome;
+	public Partido(Date matchDate, Equipo teamHome, Temporada season) {
+	    this.matchDate = matchDate;
+	    this.teamHome = teamHome;
+	    this.season = season;
 	}
 
 	public Date getMatchDate() {
@@ -51,5 +55,13 @@ public class Partido {
 
 	public int getId() {
 		return id;
+	}
+	
+	public Temporada getSeason() {
+	    return season;
+	}
+
+	public void setSeason(Temporada season) {
+	    this.season = season;
 	}
 }

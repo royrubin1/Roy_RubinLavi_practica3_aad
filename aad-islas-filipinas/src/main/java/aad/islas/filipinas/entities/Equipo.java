@@ -1,11 +1,15 @@
 package aad.islas.filipinas.entities;
 
-import java.util.ArrayList;
+import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -20,16 +24,21 @@ public class Equipo {
 	@Column(name = "team_name")
 	private String nombreEquipo;
 	
-	@OneToMany(mappedBy = "team")
-	private ArrayList<Jugador> jugadores;
+	@OneToMany(mappedBy = "equipo",cascade = CascadeType.ALL)
+	private Set<Jugador> jugadores;
 	
-	@OneToMany(mappedBy = "teams")
-	private ArrayList<Patrocinador> sponsors;
+	@ManyToMany
+    @JoinTable(
+        name = "team_sponsor",
+        joinColumns = @JoinColumn(name = "team_id"),
+        inverseJoinColumns = @JoinColumn(name = "sponsor_id")
+    )
+    private Set<Patrocinador> patrocinadores;
 
-	public Equipo(String nombreEquipo, ArrayList<Jugador> jugadores, ArrayList<Patrocinador> sponsors) {
+	public Equipo(String nombreEquipo, Set<Jugador> jugadores, Set<Patrocinador> patrocinadores) {
 		this.nombreEquipo = nombreEquipo;
 		this.jugadores = jugadores;
-		this.sponsors = sponsors;
+		this.patrocinadores = patrocinadores;
 	}
 
 	public int getId() {
@@ -44,20 +53,20 @@ public class Equipo {
 		this.nombreEquipo = nombreEquipo;
 	}
 
-	public ArrayList<Jugador> getJugadores() {
+	public Set<Jugador> getJugadores() {
 		return jugadores;
 	}
 
-	public void setJugadores(ArrayList<Jugador> jugadores) {
+	public void setJugadores(Set<Jugador> jugadores) {
 		this.jugadores = jugadores;
 	}
 
-	public ArrayList<Patrocinador> getSponsors() {
-		return sponsors;
+	public Set<Patrocinador> getpatrocinadores() {
+		return patrocinadores;
 	}
 
-	public void setSponsors(ArrayList<Patrocinador> sponsors) {
-		this.sponsors = sponsors;
+	public void setpatrocinadores(Set<Patrocinador> patrocinadores) {
+		this.patrocinadores = patrocinadores;
 	}
 	
 }
