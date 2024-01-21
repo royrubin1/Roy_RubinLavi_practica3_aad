@@ -1,6 +1,7 @@
 package aad.islas.filipinas.entities;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -25,7 +26,7 @@ public class Equipo {
 	private String nombreEquipo;
 	
 	@OneToMany(mappedBy = "equipo",cascade = CascadeType.ALL)
-	private Set<Jugador> jugadores;
+	private ArrayList<Jugador> jugadores;
 	
 	@ManyToMany
     @JoinTable(
@@ -33,9 +34,9 @@ public class Equipo {
         joinColumns = @JoinColumn(name = "team_id"),
         inverseJoinColumns = @JoinColumn(name = "sponsor_id")
     )
-    private Set<Patrocinador> patrocinadores;
+    private List<Patrocinador> patrocinadores;
 
-	public Equipo(String nombreEquipo, Set<Jugador> jugadores, Set<Patrocinador> patrocinadores) {
+	public Equipo(String nombreEquipo, ArrayList<Jugador> jugadores, ArrayList<Patrocinador> patrocinadores) {
 		this.nombreEquipo = nombreEquipo;
 		this.jugadores = jugadores;
 		this.patrocinadores = patrocinadores;
@@ -53,19 +54,19 @@ public class Equipo {
 		this.nombreEquipo = nombreEquipo;
 	}
 
-	public Set<Jugador> getJugadores() {
+	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
 	}
 
-	public void setJugadores(Set<Jugador> jugadores) {
+	public void setJugadores(ArrayList<Jugador> jugadores) {
 		this.jugadores = jugadores;
 	}
 
-	public Set<Patrocinador> getpatrocinadores() {
+	public List<Patrocinador> getPatrocinadores() {
 		return patrocinadores;
 	}
 
-	public void setpatrocinadores(Set<Patrocinador> patrocinadores) {
+	public void setPatrocinadores(List<Patrocinador> patrocinadores) {
 		this.patrocinadores = patrocinadores;
 	}
 	

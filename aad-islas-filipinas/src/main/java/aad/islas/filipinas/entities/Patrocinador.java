@@ -1,6 +1,9 @@
 package aad.islas.filipinas.entities;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,12 +21,12 @@ public class Patrocinador {
 	@Column(name = "sponsor_name")
 	private String nombrePatrocinador;
 	
-	@ManyToMany(mappedBy = "sponsors")
-    private Set<Equipo> equipos;
+	@ManyToMany(mappedBy = "patrocinadores", cascade = CascadeType.PERSIST)
+    private List<Equipo> equipos;
 
-	public Patrocinador(String nombrePatrocinador, Set<Equipo> equipos) {
+	public Patrocinador(String nombrePatrocinador) {
 		this.nombrePatrocinador = nombrePatrocinador;
-		this.equipos = equipos;
+		this.equipos = new ArrayList<Equipo>();
 	}
 
 	public int getId() {
@@ -38,12 +41,16 @@ public class Patrocinador {
 		this.nombrePatrocinador = nombrePatrocinador;
 	}
 
-	public Set<Equipo> getEquipos() {
+	public List<Equipo> getEquipos() {
 		return equipos;
 	}
 
-	public void setEquipos(Set<Equipo> equipos) {
+	public void setEquipos(ArrayList<Equipo> equipos) {
 		this.equipos = equipos;
+	}
+	
+	public void addEquipo(Equipo equipo) {
+	    this.equipos.add(equipo);
 	}
 	
 }
