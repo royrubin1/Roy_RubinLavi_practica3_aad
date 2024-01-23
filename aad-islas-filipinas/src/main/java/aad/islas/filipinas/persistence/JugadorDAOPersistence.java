@@ -1,6 +1,7 @@
 package aad.islas.filipinas.persistence;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import aad.islas.filipinas.dao.DAO;
@@ -9,29 +10,38 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class JugadorDAOPersistence implements DAO<Jugador>{
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("orm_competicion_unit");
-	EntityManager em = emf.createEntityManager();
-	
-	@Override
-	public void insert(Jugador obj) {
-		// TODO Auto-generated method stub
-		
+public class JugadorDAOPersistence implements DAO<Jugador> {
+	EntityManager entityManager;
+	public JugadorDAOPersistence(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	@Override
-	public void insertAll(ArrayList<Jugador> objs) {
-		em.getTransaction().begin();
-		for (Jugador jugador : objs) {
-			em.persist(jugador);
+	public void insert(Jugador obj) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void insertAll(List<Jugador> objs) {
+		entityManager.getTransaction().begin();
+		try {
+			for (Jugador jugador : objs) {
+				entityManager.persist(jugador);
+			}
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
 		}
-		em.getTransaction().commit();
 	}
 
 	@Override
 	public Jugador find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		entityManager.getTransaction().begin();
+		Jugador jugador = entityManager.createQuery("SELECT j FROM Jugador j WHERE id = :idJugador", Jugador.class)
+				.getSingleResult();
+		return jugador;
 	}
 
 	@Override
@@ -40,16 +50,16 @@ public class JugadorDAOPersistence implements DAO<Jugador>{
 	}
 
 	@Override
-	public void update(Jugador obj) {
-		// TODO Auto-generated method stub
-		
+	public void update(Jugador jugador) {
+		entityManager.getTransaction().begin();
+		entityManager.merge(jugador);
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public void delete(Jugador obj) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
 
 }

@@ -45,7 +45,7 @@ public class Patrocinador {
 		return equipos;
 	}
 
-	public void setEquipos(ArrayList<Equipo> equipos) {
+	public void setEquipos(List<Equipo> equipos) {
 		this.equipos = equipos;
 	}
 	

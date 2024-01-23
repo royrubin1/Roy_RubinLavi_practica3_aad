@@ -5,13 +5,14 @@ import java.util.Map;
 import java.time.LocalDate;
 import aad.islas.filipinas.entities.Equipo;
 import aad.islas.filipinas.entities.Jugador;
+import jakarta.persistence.EntityManager;
 
 public class GenerarJugadores {
 
-	public static ArrayList<Jugador> generarJugadores() {
+	public static ArrayList<Jugador> generarJugadores(EntityManager entityManager) {
 
 		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-		Map<String, Equipo> equipos = GenerarEquipos.generarEquipos();
+		Map<String, Equipo> equipos = GenerarEquipos.generarEquipos(entityManager);
 		
         // Jugadores Athletic Club de Bilbao
 		Equipo athleticBilbao = equipos.get("Athletic Bilbao");
@@ -133,6 +134,22 @@ public class GenerarJugadores {
 		jugadores.add(new Jugador("Suso", "Español", LocalDate.of(1993, 11, 19), sevillaFC));
 		jugadores.add(new Jugador("Youssef En-Nesyri", "Marroquí", LocalDate.of(1997, 6, 1), sevillaFC));
 		jugadores.add(new Jugador("Rafa Mir", "Español", LocalDate.of(1997, 6, 18), sevillaFC));
+		
+        // Jugadores Valencia CF
+		Equipo valenciaCF = equipos.get("Valencia CF");
+		
+        jugadores.add(new Jugador("Jasper Cillessen", "Holandés", LocalDate.of(1989, 4, 22), valenciaCF));
+        jugadores.add(new Jugador("José Gayà", "Español", LocalDate.of(1995, 5, 25), valenciaCF));
+        jugadores.add(new Jugador("Gabriel Paulista", "Brasileño", LocalDate.of(1990, 11, 26), valenciaCF));
+        jugadores.add(new Jugador("Hugo Guillamón", "Español", LocalDate.of(2000, 1, 31), valenciaCF));
+        jugadores.add(new Jugador("Thierry Correia", "Portugués", LocalDate.of(1999, 3, 9), valenciaCF));
+        jugadores.add(new Jugador("Carlos Soler", "Español", LocalDate.of(1997, 1, 2), valenciaCF));
+        jugadores.add(new Jugador("Daniel Wass", "Danés", LocalDate.of(1989, 5, 31), valenciaCF));
+        jugadores.add(new Jugador("Gonçalo Guedes", "Portugués", LocalDate.of(1996, 11, 29), valenciaCF));
+        jugadores.add(new Jugador("Maxi Gómez", "Uruguayo", LocalDate.of(1996, 8, 14), valenciaCF));
+        jugadores.add(new Jugador("Denis Cheryshev", "Ruso", LocalDate.of(1990, 12, 26), valenciaCF));
+        jugadores.add(new Jugador("Yunus Musah", "Estadounidense", LocalDate.of(2002, 11, 29), valenciaCF));
+
 		
 		Equipo villarrealCF = equipos.get("Villarreal CF");
         // Jugadores Villarreal CF

@@ -1,5 +1,6 @@
 package aad.islas.filipinas.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -33,9 +34,9 @@ public class Transferencia {
 	
 	@Column(name = "transfer_date")
 	@Temporal(TemporalType.DATE)
-	private Date transferDate;
+	private LocalDate transferDate;
 
-	public Transferencia(Jugador jugador, Equipo delEquipo, Equipo alEquipo, Date transferDate) {
+	public Transferencia(Jugador jugador, Equipo delEquipo, Equipo alEquipo, LocalDate transferDate) {
 		super();
 		this.jugador = jugador;
 		this.delEquipo = delEquipo;
@@ -67,11 +68,11 @@ public class Transferencia {
 		this.alEquipo = alEquipo;
 	}
 
-	public Date getTransferDate() {
+	public LocalDate getTransferDate() {
 		return transferDate;
 	}
 
-	public void setTransferDate(Date transferDate) {
+	public void setTransferDate(LocalDate transferDate) {
 		this.transferDate = transferDate;
 	}
 

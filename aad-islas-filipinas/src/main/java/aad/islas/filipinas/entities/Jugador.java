@@ -31,7 +31,7 @@ public class Jugador {
 	@Column(name = "birthdate")
 	private LocalDate fechaNacimiento;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "team_id")
 	private Equipo equipo;
 

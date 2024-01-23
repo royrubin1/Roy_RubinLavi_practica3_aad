@@ -1,6 +1,7 @@
 package aad.islas.filipinas.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,10 +20,10 @@ public class Temporada {
 	@Column(name = "league_year")
 	private int anoLiga;
 	
-	@OneToMany(mappedBy = "season")
-	private ArrayList<Partido> partidos;
+	@OneToMany(mappedBy = "temporada")
+	private List<Partido> partidos;
 
-	public Temporada(int anoLiga, ArrayList<Partido> partidos) {
+	public Temporada(int anoLiga, List<Partido> partidos) {
 		this.anoLiga = anoLiga;
 		this.partidos = partidos;
 	}
@@ -39,11 +40,11 @@ public class Temporada {
 		this.anoLiga = anoLiga;
 	}
 
-	public ArrayList<Partido> getPartidos() {
+	public List<Partido> getPartidos() {
 		return partidos;
 	}
 
-	public void setPartidos(ArrayList<Partido> partidos) {
+	public void setPartidos(List<Partido> partidos) {
 		this.partidos = partidos;
 	}
 	

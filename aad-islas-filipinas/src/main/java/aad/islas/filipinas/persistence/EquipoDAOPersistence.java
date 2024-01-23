@@ -1,6 +1,7 @@
 package aad.islas.filipinas.persistence;
 
-import java.util.ArrayList;
+import java.util.List;
+
 import aad.islas.filipinas.dao.DAO;
 import aad.islas.filipinas.entities.Equipo;
 import jakarta.persistence.EntityManager;
@@ -9,8 +10,12 @@ import jakarta.persistence.Persistence;
 
 public class EquipoDAOPersistence implements DAO<Equipo>{
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("orm_competicion_unit");
-	EntityManager em = emf.createEntityManager();
+	EntityManager entityManager;
+	
+	public EquipoDAOPersistence(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
 	@Override
 	public void insert(Equipo obj) {
 		// TODO Auto-generated method stub
@@ -18,12 +23,12 @@ public class EquipoDAOPersistence implements DAO<Equipo>{
 	}
 	
 	@Override
-	public void insertAll(ArrayList<Equipo> equipos) {
-	    em.getTransaction().begin();  // Start the transaction
+	public void insertAll(List<Equipo> equipos) {
+		entityManager.getTransaction().begin();  // Start the transaction
 	    for (Equipo equipo : equipos) {
-	        em.persist(equipo);
+	    	entityManager.persist(equipo);
 	    }
-	    em.getTransaction().commit();  // Commit the transaction
+	    entityManager.getTransaction().commit();  // Commit the transaction
 	}
 	
 	@Override
@@ -32,10 +37,17 @@ public class EquipoDAOPersistence implements DAO<Equipo>{
 		return null;
 	}
 	@Override
-	public ArrayList<Equipo> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Equipo> getAll() {
+	    List<Equipo> equipos;
+	    try {
+	        equipos = entityManager.createQuery("SELECT e FROM Equipo e", Equipo.class).getResultList();
+	    } catch (Exception e) {
+	        // Manejar la excepción adecuadamente (p.ej., loggear el error)
+	        throw new RuntimeException("Error al obtener todos los equipos", e);
+	    }
+	    return equipos;
 	}
+
 	@Override
 	public void update(Equipo equipo) {
 		// TODO Auto-generated method stub

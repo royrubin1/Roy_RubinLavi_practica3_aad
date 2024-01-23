@@ -25,8 +25,8 @@ public class Equipo {
 	@Column(name = "team_name")
 	private String nombreEquipo;
 	
-	@OneToMany(mappedBy = "equipo",cascade = CascadeType.ALL)
-	private ArrayList<Jugador> jugadores;
+	@OneToMany(mappedBy = "equipo",cascade = CascadeType.PERSIST)
+	private List<Jugador> jugadores;
 	
 	@ManyToMany
     @JoinTable(
@@ -36,7 +36,7 @@ public class Equipo {
     )
     private List<Patrocinador> patrocinadores;
 
-	public Equipo(String nombreEquipo, ArrayList<Jugador> jugadores, ArrayList<Patrocinador> patrocinadores) {
+	public Equipo(String nombreEquipo, List<Jugador> jugadores, List<Patrocinador> patrocinadores) {
 		this.nombreEquipo = nombreEquipo;
 		this.jugadores = jugadores;
 		this.patrocinadores = patrocinadores;
@@ -54,7 +54,7 @@ public class Equipo {
 		this.nombreEquipo = nombreEquipo;
 	}
 
-	public ArrayList<Jugador> getJugadores() {
+	public List<Jugador> getJugadores() {
 		return jugadores;
 	}
 

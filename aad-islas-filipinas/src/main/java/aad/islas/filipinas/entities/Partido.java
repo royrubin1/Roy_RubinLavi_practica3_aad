@@ -1,6 +1,6 @@
 package aad.islas.filipinas.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,47 +21,86 @@ public class Partido {
 	
 	@Column(name = "match_date")
 	@Temporal(TemporalType.DATE)
-	private Date matchDate;
+	private LocalDate matchDate;
 	
 	@ManyToOne
 	@JoinColumn(name = "team_home_id")
-	private Equipo teamHome;
+	private Equipo equipoLocal;
 	
 	@ManyToOne
-	@JoinColumn(name = "season_id")
-	private Temporada season;
+	@JoinColumn(name = "team_away_id")
+	private Equipo equipoVisitante;
+	
+	@Column(name = "team_home_goals")
+	private int golesEquipoLocal;
+	
+	@Column(name = "team_away_goals")
+	private int golesEquipoVistante;
+	
+	@ManyToOne
+	@JoinColumn(name = "temporada_id")
+	private Temporada temporada;
 
-	public Partido(Date matchDate, Equipo teamHome, Temporada season) {
-	    this.matchDate = matchDate;
-	    this.teamHome = teamHome;
-	    this.season = season;
+
+	public Partido(LocalDate matchDate, Equipo equipoLocal, Equipo equipoVisitante, int golesEquipoLocal,
+			int golesEquipoVistante, Temporada temporada) {
+		this.matchDate = matchDate;
+		this.equipoLocal = equipoLocal;
+		this.equipoVisitante = equipoVisitante;
+		this.golesEquipoLocal = golesEquipoLocal;
+		this.golesEquipoVistante = golesEquipoVistante;
+		this.temporada = temporada;
 	}
 
-	public Date getMatchDate() {
+	public LocalDate getMatchDate() {
 		return matchDate;
 	}
 
-	public void setMatchDate(Date matchDate) {
+	public void setMatchDate(LocalDate matchDate) {
 		this.matchDate = matchDate;
 	}
 
-	public Equipo getTeamHome() {
-		return teamHome;
+	public Equipo getequipoLocal() {
+		return equipoLocal;
 	}
 
-	public void setTeamHome(Equipo teamHome) {
-		this.teamHome = teamHome;
+	public void setequipoLocal(Equipo equipoLocal) {
+		this.equipoLocal = equipoLocal;
 	}
 
 	public int getId() {
 		return id;
 	}
 	
-	public Temporada getSeason() {
-	    return season;
+	public Temporada getTemporada() {
+	    return temporada;
 	}
 
-	public void setSeason(Temporada season) {
-	    this.season = season;
+	public void setTemporada(Temporada temporada) {
+	    this.temporada = temporada;
+	}
+
+	public Equipo getEquipoVisitante() {
+		return equipoVisitante;
+	}
+
+	public void setEquipoVisitante(Equipo equipoVisitante) {
+		this.equipoVisitante = equipoVisitante;
+	}
+
+	public int getGolesEquipoLocal() {
+		return golesEquipoLocal;
+	}
+
+	public void setGolesEquipoLocal(int golesEquipoLocal) {
+		this.golesEquipoLocal = golesEquipoLocal;
+	}
+
+	public int getGolesEquipoVistante() {
+		return golesEquipoVistante;
+	}
+
+	public void setGolesEquipoVistante(int golesEquipoVistante) {
+		this.golesEquipoVistante = golesEquipoVistante;
 	}
 }
