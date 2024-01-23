@@ -1,4 +1,4 @@
-package aad.islas.filipinas.persistence;
+package aad.islas.filipinas.generacion;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +8,9 @@ import java.util.Random;
 import aad.islas.filipinas.entities.Equipo;
 import aad.islas.filipinas.entities.Partido;
 import aad.islas.filipinas.entities.Temporada;
+import aad.islas.filipinas.persistence.EquipoDAOImpl;
+import aad.islas.filipinas.persistence.PartidoDAOImpl;
+import aad.islas.filipinas.persistence.TemporadaDAOImpl;
 import jakarta.persistence.EntityManager;
 
 public class GenerarPartidos {

@@ -1,4 +1,4 @@
-package aad.islas.filipinas.persistence;
+package aad.islas.filipinas.generacion;
 
 import java.util.HashMap;
 import java.util.Map;

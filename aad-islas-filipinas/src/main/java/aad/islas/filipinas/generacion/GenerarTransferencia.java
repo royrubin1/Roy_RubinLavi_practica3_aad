@@ -1,10 +1,12 @@
-package aad.islas.filipinas.persistence;
+package aad.islas.filipinas.generacion;
 
 import java.time.LocalDate;
 
 import aad.islas.filipinas.entities.Equipo;
 import aad.islas.filipinas.entities.Jugador;
 import aad.islas.filipinas.entities.Transferencia;
+import aad.islas.filipinas.persistence.JugadorDAOImpl;
+import aad.islas.filipinas.persistence.TransferenciaDAOImpl;
 import jakarta.persistence.EntityManager;
 
 public class GenerarTransferencia {

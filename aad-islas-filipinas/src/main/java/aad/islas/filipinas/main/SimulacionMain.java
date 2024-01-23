@@ -1,9 +1,9 @@
-package add.islas.filipinas.main;
+package aad.islas.filipinas.main;
 
 import aad.islas.filipinas.entities.Temporada;
-import aad.islas.filipinas.persistence.GenerarJugadores;
-import aad.islas.filipinas.persistence.GenerarPartidos;
-import aad.islas.filipinas.persistence.GenerarPatrocinadores;
+import aad.islas.filipinas.generacion.GenerarJugadores;
+import aad.islas.filipinas.generacion.GenerarPartidos;
+import aad.islas.filipinas.generacion.GenerarPatrocinadores;
 import aad.islas.filipinas.persistence.JugadorDAOImpl;
 
 import aad.islas.filipinas.persistence.PatrocinadorDAOImpl;

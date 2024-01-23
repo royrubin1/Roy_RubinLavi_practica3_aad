@@ -1,4 +1,4 @@
-package aad.islas.filipinas.persistence;
+package aad.islas.filipinas.generacion;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +7,7 @@ import java.util.Random;
 
 import aad.islas.filipinas.entities.Equipo;
 import aad.islas.filipinas.entities.Patrocinador;
+import aad.islas.filipinas.persistence.PatrocinadorDAOImpl;
 import jakarta.persistence.EntityManager;
 
 public class GenerarPatrocinadores {
