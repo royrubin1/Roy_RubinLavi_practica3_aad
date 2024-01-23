@@ -4,8 +4,10 @@ import aad.islas.filipinas.entities.Temporada;
 import aad.islas.filipinas.persistence.GenerarJugadores;
 import aad.islas.filipinas.persistence.GenerarPartidos;
 import aad.islas.filipinas.persistence.GenerarPatrocinadores;
-import aad.islas.filipinas.persistence.JugadorDAOPersistence;
-import aad.islas.filipinas.persistence.PatrocinadorDAOPersistence;
+import aad.islas.filipinas.persistence.JugadorDAOImpl;
+
+import aad.islas.filipinas.persistence.PatrocinadorDAOImpl;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -17,11 +19,11 @@ public class SimulacionMain {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		// Creamos los patrocinadores
-		PatrocinadorDAOPersistence pdp = new PatrocinadorDAOPersistence(entityManager);
+		PatrocinadorDAOImpl pdp = new PatrocinadorDAOImpl(entityManager);
 		pdp.insertAll(GenerarPatrocinadores.generarPatrocinadores());
 		
 		// Creamos los jugadores y los equipos
-		JugadorDAOPersistence jdp = new JugadorDAOPersistence(entityManager);
+		JugadorDAOImpl jdp = new JugadorDAOImpl(entityManager);
 		jdp.insertAll(GenerarJugadores.generarJugadores(entityManager));
 		
 		// Creamos los partidos

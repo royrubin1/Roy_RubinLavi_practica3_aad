@@ -5,9 +5,11 @@ import java.util.List;
 public interface DAO <T>{
     void insert(T obj);
     void insertAll(List<T> objs);    
-    T find(int id);
-    List<T> getAll();
+    T find(Class<T> className, int id);
+	List<T> findAll(Class<T> className);
     void update(T obj);
     void delete(T obj);
+
+	
 
 }

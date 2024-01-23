@@ -10,11 +10,11 @@ import jakarta.persistence.EntityManager;
 public class GenerarTransferencia {
 	static void generarTransferencia(EntityManager entityManager, Jugador jugador, Equipo delEquipo, Equipo alEquipo,
 			LocalDate fehcaTransferencia) {
-		JugadorDAOPersistence jdp = new JugadorDAOPersistence(entityManager);
+		JugadorDAOImpl jdp = new JugadorDAOImpl(entityManager);
 		jugador.setEquipo(alEquipo);
 		jdp.update(jugador);
 		
-		TransferenciaDAOPersistence tdp = new TransferenciaDAOPersistence(entityManager);
+		TransferenciaDAOImpl tdp = new TransferenciaDAOImpl(entityManager);
 		tdp.insert(new Transferencia(jugador, delEquipo, alEquipo, fehcaTransferencia));
 	}
 }

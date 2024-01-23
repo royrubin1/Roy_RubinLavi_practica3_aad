@@ -16,8 +16,8 @@ public class GenerarPartidos {
 	public static void generarPartidos(EntityManager entityManager, Temporada temporada) {
 
 		// Importamos todos los equipos de la BBDD
-		EquipoDAOPersistence edp = new EquipoDAOPersistence(entityManager);
-		List<Equipo> equipos = edp.getAll();
+		EquipoDAOImpl edp = new EquipoDAOImpl(entityManager);
+		List<Equipo> equipos = edp.findAll(Equipo.class);
 		
 		
 		LocalDate fechaPartido = LocalDate.of(temporada.getAnoLiga(), 8, 20);
@@ -28,8 +28,8 @@ public class GenerarPartidos {
         
 
 		// Verificamos que la temporada esté insertada
-		TemporadaDAOPersistence tdp = new TemporadaDAOPersistence(entityManager);
-		PartidoDAOPersistence pdp = new PartidoDAOPersistence(entityManager);
+		TemporadaDAOImpl tdp = new TemporadaDAOImpl(entityManager);
+		PartidoDAOImpl pdp = new PartidoDAOImpl(entityManager);
 		temporada.setPartidos(partidos);
 		tdp.insert(temporada);
 		pdp.insertAll(partidos);

@@ -22,8 +22,8 @@ public class GenerarPatrocinadores {
 	}
 	
 	static List<Patrocinador> generarPatrocinadoresAleatorio(EntityManager entityManager) {
-		PatrocinadorDAOPersistence pdp = new PatrocinadorDAOPersistence(entityManager);
-		List<Patrocinador> patrocinadores = pdp.getAll();
+		PatrocinadorDAOImpl pdp = new PatrocinadorDAOImpl(entityManager);
+		List<Patrocinador> patrocinadores = pdp.findAll(Patrocinador.class);
         int patrocinadoresLength = new Random().nextInt(patrocinadores.size() + 1);
         Collections.shuffle(patrocinadores);
 
