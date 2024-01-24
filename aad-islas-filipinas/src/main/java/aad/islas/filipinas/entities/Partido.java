@@ -21,7 +21,7 @@ public class Partido {
 	
 	@Column(name = "match_date")
 	@Temporal(TemporalType.DATE)
-	private LocalDate matchDate;
+	private LocalDate fechaPartido;
 	
 	@ManyToOne
 	@JoinColumn(name = "team_home_id")
@@ -42,9 +42,9 @@ public class Partido {
 	private Temporada temporada;
 
 
-	public Partido(LocalDate matchDate, Equipo equipoLocal, Equipo equipoVisitante, int golesEquipoLocal,
+	public Partido(LocalDate fechaPartido, Equipo equipoLocal, Equipo equipoVisitante, int golesEquipoLocal,
 			int golesEquipoVistante, Temporada temporada) {
-		this.matchDate = matchDate;
+		this.fechaPartido = fechaPartido;
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
 		this.golesEquipoLocal = golesEquipoLocal;
@@ -52,12 +52,12 @@ public class Partido {
 		this.temporada = temporada;
 	}
 
-	public LocalDate getMatchDate() {
-		return matchDate;
+	public LocalDate getFechaPartido() {
+		return fechaPartido;
 	}
 
-	public void setMatchDate(LocalDate matchDate) {
-		this.matchDate = matchDate;
+	public void setFechaPartido(LocalDate fechaPartido) {
+		this.fechaPartido = fechaPartido;
 	}
 
 	public Equipo getequipoLocal() {

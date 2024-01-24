@@ -34,14 +34,14 @@ public class Transferencia {
 	
 	@Column(name = "transfer_date")
 	@Temporal(TemporalType.DATE)
-	private LocalDate transferDate;
+	private LocalDate fechaTransferencia;
 
 	public Transferencia(Jugador jugador, Equipo delEquipo, Equipo alEquipo, LocalDate transferDate) {
 		super();
 		this.jugador = jugador;
 		this.delEquipo = delEquipo;
 		this.alEquipo = alEquipo;
-		this.transferDate = transferDate;
+		this.fechaTransferencia = transferDate;
 	}
 
 	public Jugador getJugador() {
@@ -68,12 +68,12 @@ public class Transferencia {
 		this.alEquipo = alEquipo;
 	}
 
-	public LocalDate getTransferDate() {
-		return transferDate;
+	public LocalDate getFechaTransferencia() {
+		return fechaTransferencia;
 	}
 
-	public void setTransferDate(LocalDate transferDate) {
-		this.transferDate = transferDate;
+	public void setFechaTransferencia(LocalDate fechaTransferencia) {
+		this.fechaTransferencia = fechaTransferencia;
 	}
 
 	public int getId() {

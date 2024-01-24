@@ -41,10 +41,10 @@ public class GenerarPartidos {
     private static LocalDate programarPartidos(List<Equipo> equipos, LocalDate fechaPartido, Temporada temporada) {
         Random rand = new Random();
     	for (int i = 0; i < equipos.size(); i++) {
+    		fechaPartido = fechaPartido.plusWeeks(rand.nextInt(3)+1);
             for (int j = 0; j < equipos.size(); j++) {
                 if (i != j) {
                     partidos.add(new Partido(fechaPartido, equipos.get(i), equipos.get(j), rand.nextInt(6), rand.nextInt(6), temporada));
-                    fechaPartido = fechaPartido.plusWeeks(1);
                 }
             }
         }
