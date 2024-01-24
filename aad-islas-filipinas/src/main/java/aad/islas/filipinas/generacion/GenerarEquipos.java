@@ -4,34 +4,62 @@ import java.util.HashMap;
 import java.util.Map;
 
 import aad.islas.filipinas.entities.Equipo;
+import aad.islas.filipinas.entities.Estadio;
 import jakarta.persistence.EntityManager;
 
 public class GenerarEquipos {
     
     public static Map<String, Equipo> generarEquipos(EntityManager entityManager) {
         Map<String, Equipo> equiposMap = new HashMap<>();
+        // Athletic Bilbao
+        Equipo athleticBilao = new Equipo("Athletic Bilbao", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        athleticBilao.setEstadio(new Estadio("San Mamés", athleticBilao));
+        equiposMap.put("Athletic Bilbao", athleticBilao);
         
-        equiposMap.put("Athletic Bilbao", new Equipo("Athletic Bilbao", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("Atlético Madrid", new Equipo("Atlético Madrid", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        //equiposMap.put("Cádiz CF", new Equipo("Cádiz CF", null, null));
-        //equiposMap.put("CA Osasuna", new Equipo("CA Osasuna", null, null));
-        //equiposMap.put("Celta Vigo", new Equipo("Celta Vigo", null, null));
-        equiposMap.put("Deportivo Alavés", new Equipo("Deportivo Alavés", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("FC Barcelona", new Equipo("Barcelona", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("Getafe CF", new Equipo("Getafe CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        //equiposMap.put("Girona FC", new Equipo("Girona FC", null, null));
-        //equiposMap.put("Granada CF", new Equipo("Granada CF", null, null));
-        //equiposMap.put("Rayo Vallecano", new Equipo("Rayo Vallecano", null, null));
-        //equiposMap.put("RCD Mallorca", new Equipo("RCD Mallorca", null, null));
-        //equiposMap.put("Real Betis", new Equipo("Real Betis", null, null));
-        equiposMap.put("Real Madrid", new Equipo("Real Madrid", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("Real Sociedad", new Equipo("Real Sociedad", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("Sevilla FC", new Equipo("Sevilla FC", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        //equiposMap.put("UD Almería", new Equipo("UD Almería", null, null));
-        //equiposMap.put("UD Las Palmas", new Equipo("UD Las Palmas", null, null));
-        equiposMap.put("Valencia CF", new Equipo("Valencia CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
-        equiposMap.put("Villarreal CF", new Equipo("Villarreal CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager)));
+        // Atletico Madrid
+        Equipo atleticoMadrid = new Equipo("Atlético Madrid", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        atleticoMadrid.setEstadio(new Estadio("Estadio Cívitas Metropolitano", atleticoMadrid));
+        equiposMap.put("Atlético Madrid", atleticoMadrid);
+        
+        // Deportivo Alavés
+        Equipo deportivoAlaves = new Equipo("Deportivo Alavés", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        deportivoAlaves.setEstadio(new Estadio("Estadio de Mendizorroza", deportivoAlaves));
+        equiposMap.put("Deportivo Alavés", deportivoAlaves);
+        
+        // FC Barcelona
+        Equipo fcBarcelona = new Equipo("Barcelona", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        fcBarcelona.setEstadio(new Estadio("Spotify Camp Nou", fcBarcelona));
+        equiposMap.put("FC Barcelona", fcBarcelona);
+        
+        // Getafe CF
+        Equipo getafeCF = new Equipo("Getafe CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        getafeCF.setEstadio(new Estadio("Estadio Coliseum", getafeCF));
+        equiposMap.put("Getafe CF", getafeCF);
 
+        // Real Madrid
+        Equipo realMadrid = new Equipo("Real Madrid", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        realMadrid.setEstadio(new Estadio("Estadio Santiago Bernabéu", realMadrid));
+        equiposMap.put("Real Madrid", realMadrid);
+        
+        // Real Sociedad
+        Equipo realSociedad = new Equipo("Real Sociedad", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        realSociedad.setEstadio(new Estadio("Reale Arena", realSociedad));
+        equiposMap.put("Real Sociedad", realSociedad);
+        
+        // Sevilla FC
+        Equipo sevillaFC = new Equipo("Sevilla FC", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        sevillaFC.setEstadio(new Estadio("Estadio Ramón Sánchez-Pizjuán", sevillaFC));
+        equiposMap.put("Sevilla FC", sevillaFC);
+        
+        // Valencia CF
+        Equipo valenciaCF = new Equipo("Valencia CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        valenciaCF.setEstadio(new Estadio("Estadio de Mestalla", valenciaCF));
+        equiposMap.put("Valencia CF", valenciaCF);
+        
+        // Villarreal CF
+        Equipo villarrealCF = new Equipo("Villarreal CF", null, GenerarPatrocinadores.generarPatrocinadoresAleatorio(entityManager), null);
+        villarrealCF.setEstadio(new Estadio("Estadi de la Ceràmica", villarrealCF));
+        equiposMap.put("Villarreal CF", villarrealCF);
         return equiposMap;
     }
 }

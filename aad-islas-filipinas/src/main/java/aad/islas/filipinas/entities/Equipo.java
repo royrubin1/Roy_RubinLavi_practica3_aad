@@ -12,6 +12,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -35,11 +36,16 @@ public class Equipo {
         inverseJoinColumns = @JoinColumn(name = "sponsor_id")
     )
     private List<Patrocinador> patrocinadores;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "estadio_id")
+	private Estadio estadio;
 
-	public Equipo(String nombreEquipo, List<Jugador> jugadores, List<Patrocinador> patrocinadores) {
+	public Equipo(String nombreEquipo, List<Jugador> jugadores, List<Patrocinador> patrocinadores, Estadio estadio) {
 		this.nombreEquipo = nombreEquipo;
 		this.jugadores = jugadores;
 		this.patrocinadores = patrocinadores;
+		this.estadio = estadio;
 	}
 
 	public int getId() {
@@ -68,6 +74,14 @@ public class Equipo {
 
 	public void setPatrocinadores(List<Patrocinador> patrocinadores) {
 		this.patrocinadores = patrocinadores;
+	}
+
+	public Estadio getEstadio() {
+		return estadio;
+	}
+
+	public void setEstadio(Estadio estadio) {
+		this.estadio = estadio;
 	}
 	
 }
