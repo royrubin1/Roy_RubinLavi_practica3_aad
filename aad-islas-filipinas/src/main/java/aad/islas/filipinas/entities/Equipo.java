@@ -26,6 +26,9 @@ public class Equipo {
 	@Column(name = "team_name")
 	private String nombreEquipo;
 	
+	@Column(name = "budget")
+	private double presupuesto;
+	
 	@OneToMany(mappedBy = "equipo",cascade = CascadeType.PERSIST)
 	private List<Jugador> jugadores;
 	
@@ -41,8 +44,9 @@ public class Equipo {
 	@JoinColumn(name = "estadio_id")
 	private Estadio estadio;
 
-	public Equipo(String nombreEquipo, List<Jugador> jugadores, List<Patrocinador> patrocinadores, Estadio estadio) {
+	public Equipo(String nombreEquipo, double presupuesto, List<Jugador> jugadores, List<Patrocinador> patrocinadores, Estadio estadio) {
 		this.nombreEquipo = nombreEquipo;
+		this.presupuesto = presupuesto;
 		this.jugadores = jugadores;
 		this.patrocinadores = patrocinadores;
 		this.estadio = estadio;
