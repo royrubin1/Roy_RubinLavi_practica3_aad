@@ -1,3 +1,10 @@
+/**
+ * Esta clase representa una entidad de estadio en el sistema.
+ * Contiene información sobre el estadio, como su nombre y el equipo asociado que lo utiliza.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import jakarta.persistence.CascadeType;

@@ -1,3 +1,10 @@
+/**
+* Esta clase se encarga de generar patrocinadores. 
+* Proporciona métodos para generar una lista predefinida de patrocinadores 
+* y otra lista aleatoria de patrocinadores a partir de los disponibles en la base de datos.
+*
+* @author Roy
+*/
 package aad.islas.filipinas.generacion;
 
 import java.util.ArrayList;

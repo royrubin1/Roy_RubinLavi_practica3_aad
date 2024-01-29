@@ -1,3 +1,10 @@
+/**
+ * Esta clase representa una entidad de patrocinador en el sistema.
+ * Contiene información sobre el patrocinador, como su nombre y los equipos que patrocina.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import java.util.ArrayList;

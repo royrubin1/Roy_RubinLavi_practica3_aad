@@ -1,3 +1,11 @@
+/**
+ * Esta clase representa una entidad de equipo en el sistema.
+ * Contiene información sobre el equipo, como su nombre, presupuesto, jugadores, 
+ * patrocinadores y estadio.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import java.util.ArrayList;

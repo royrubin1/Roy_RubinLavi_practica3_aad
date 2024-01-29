@@ -1,6 +1,13 @@
+/**
+ * Esta clase representa una entidad de temporada en el sistema.
+ * Contiene información sobre la temporada, como el año de la liga y 
+ * la lista de partidos asociados a la misma.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;

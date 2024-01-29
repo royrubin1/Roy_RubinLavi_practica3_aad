@@ -1,7 +1,14 @@
+/**
+ * Esta clase representa una entidad de jugador en el sistema.
+ * Contiene información sobre el jugador, como su nombre, nacionalidad, 
+ * fecha de nacimiento y el equipo al que pertenece.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

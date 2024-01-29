@@ -1,3 +1,10 @@
+/**
+ * Esta clase se encarga de generar transferencias aleatorias de jugadores entre equipos.
+ * Las transferencias se generan de forma aleatoria y se registran en la base de datos.
+ *
+ * @author Roy
+ */
+
 package aad.islas.filipinas.generacion;
 
 import java.time.LocalDate;

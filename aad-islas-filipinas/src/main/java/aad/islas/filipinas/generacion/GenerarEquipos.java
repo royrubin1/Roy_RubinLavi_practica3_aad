@@ -1,3 +1,10 @@
+/**
+ * Esta clase se encarga de generar equipos de fútbol y asociarlos con 
+ * sus respectivos estadios y patrocinadores aleatorios.
+ *
+ * @author Roy
+ */
+
 package aad.islas.filipinas.generacion;
 
 import java.util.HashMap;

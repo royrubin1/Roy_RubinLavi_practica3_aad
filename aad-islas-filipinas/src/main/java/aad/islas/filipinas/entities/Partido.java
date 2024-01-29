@@ -1,3 +1,11 @@
+/**
+ * Esta clase representa una entidad de partido en el sistema.
+ * Contiene información sobre el partido, como la fecha, los equipos locales y visitantes, 
+ * los goles marcados por cada equipo y la temporada a la que pertenece.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import java.time.LocalDate;

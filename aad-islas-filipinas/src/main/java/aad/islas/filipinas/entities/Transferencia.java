@@ -1,3 +1,11 @@
+/**
+ * Esta clase representa una entidad de transferencia en el sistema.
+ * Contiene información sobre la transferencia de un jugador de un equipo a otro, 
+ * incluyendo el jugador involucrado, los equipos de origen y destino, y la fecha de la transferencia.
+ * 
+ * @author Roy
+ */
+
 package aad.islas.filipinas.entities;
 
 import java.time.LocalDate;

@@ -1,3 +1,10 @@
+/**
+ * Esta clase representa una entidad de competición en el sistema.
+ * Contiene información sobre la competición, como su nombre, número de jornadas y 
+ * número de equipos participantes.
+ * 
+ * @author Roy
+ */
 package aad.islas.filipinas.entities;
 
 import jakarta.persistence.Column;

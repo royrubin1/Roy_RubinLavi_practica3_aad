@@ -1,3 +1,8 @@
+/**
+ * Esta clase se encarga de visualizar información relacionada con competiciones, partidos y transferencias.
+ * @author Roy
+ */
+
 package aad.islas.filipinas.visualizacion;
 
 import jakarta.persistence.EntityManager;

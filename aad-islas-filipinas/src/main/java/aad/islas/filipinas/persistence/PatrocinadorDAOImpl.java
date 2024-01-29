@@ -1,3 +1,9 @@
+/**
+ * Esta clase representa una implementación específica de DAO para la entidad Patrocinador.
+ * Se encarga de realizar operaciones de persistencia relacionadas con patrocinadores en la base de datos.
+ *
+ * @author Roy
+ */
 package aad.islas.filipinas.persistence;
 
 import aad.islas.filipinas.entities.Patrocinador;

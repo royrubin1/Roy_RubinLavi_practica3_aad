@@ -1,3 +1,9 @@
+/**
+ * Esta interfaz define un conjunto de métodos genéricos para realizar operaciones CRUD 
+ * en una base de datos.
+ *
+ * @author Roy
+ */
 package aad.islas.filipinas.dao;
 import java.util.List;
 

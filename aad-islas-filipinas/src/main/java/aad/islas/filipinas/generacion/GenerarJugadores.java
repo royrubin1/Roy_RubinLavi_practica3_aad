@@ -1,3 +1,11 @@
+/**
+ * Esta clase se encarga de generar una lista de jugadores para diversos equipos de fútbol
+ * y asociarlos con los equipos correspondientes.
+ * 
+ * @author Roy
+ * 
+ */
+
 package aad.islas.filipinas.generacion;
 
 import java.util.ArrayList;

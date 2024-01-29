@@ -1,3 +1,11 @@
+/**
+ * Esta clase se encarga de generar partidos para una temporada de liga.
+ * Utiliza equipos existentes en la base de datos y programa partidos aleatorios
+ * con fechas durante la temporada.
+ *
+ * @author Roy
+ */
+
 package aad.islas.filipinas.generacion;
 
 import java.time.LocalDate;

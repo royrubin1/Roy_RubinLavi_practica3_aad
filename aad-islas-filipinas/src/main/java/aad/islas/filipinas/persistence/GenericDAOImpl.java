@@ -1,3 +1,11 @@
+/**
+ * Esta clase abstracta proporciona una implementación genérica de las 
+ * operaciones CRUD para cualquier entidad implementando la interfaz DAO.
+ *
+ * @param <T> El tipo de entidad con la que se trabaja.
+ * @author Roy
+ */
+
 package aad.islas.filipinas.persistence;
 
 import java.util.List;
