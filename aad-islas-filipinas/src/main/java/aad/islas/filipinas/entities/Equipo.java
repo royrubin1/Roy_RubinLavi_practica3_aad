@@ -51,6 +51,10 @@ public class Equipo {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "estadio_id")
 	private Estadio estadio;
+	
+	public Equipo() {
+		super();
+	}
 
 	public Equipo(String nombreEquipo, double presupuesto, List<Jugador> jugadores, List<Patrocinador> patrocinadores, Estadio estadio) {
 		this.nombreEquipo = nombreEquipo;
@@ -94,6 +98,11 @@ public class Equipo {
 
 	public void setEstadio(Estadio estadio) {
 		this.estadio = estadio;
+	}
+	
+	@Override
+	public String toString() {
+		return "Equipo: " + this.nombreEquipo + " id: " + this.id;
 	}
 	
 }

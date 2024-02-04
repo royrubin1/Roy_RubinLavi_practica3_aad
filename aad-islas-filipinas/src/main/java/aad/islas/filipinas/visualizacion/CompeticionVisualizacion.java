@@ -27,9 +27,8 @@ public class CompeticionVisualizacion {
 		CompeticionDAOImpl cdi = new CompeticionDAOImpl(entityManager);
 		Competicion competicion = cdi.find(Competicion.class, 1);
 		System.out.println("---------------------------------------------");
-		System.out.println("Nombre de competicion: " + competicion.getNombre());
-		System.out.println("Nombre de equipos: " + competicion.getNumEquipos());
-		System.out.println("Número de jornadas: " + competicion.getNumJornadas());
+		System.out.println(competicion);
+
 	}
 	
 	private static void visualizarPartidos(EntityManager entityManager) {

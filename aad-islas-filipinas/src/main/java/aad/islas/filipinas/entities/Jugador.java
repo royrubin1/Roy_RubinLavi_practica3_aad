@@ -41,6 +41,10 @@ public class Jugador {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "team_id")
 	private Equipo equipo;
+	
+	public Jugador() {
+		super();
+	}
 
 	public Jugador(String nombreJugador, String nacionalidad, LocalDate fechaNacimiento, Equipo equipo) {
 		this.nombreJugador = nombreJugador;
@@ -83,6 +87,11 @@ public class Jugador {
 
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Equipo: " + this.getEquipo().getNombreEquipo() + ", nombre jugador: " + this.nombreJugador + ", nacionalidad: " + this.nacionalidad;
 	}
 	
 }

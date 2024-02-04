@@ -11,8 +11,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "competition")
 public class Competicion {
 	@Id
 	@GeneratedValue
@@ -26,6 +28,10 @@ public class Competicion {
 	
 	@Column(name = "num_equipos")
 	private int numEquipos;
+	
+	public Competicion() {
+		super();
+	}
 
 	public Competicion(String nombre, int numJornadas, int numEquipos) {
 		super();
@@ -62,5 +68,10 @@ public class Competicion {
 		return id;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Nombre de competicion: " + this.getNombre() + "\n" +
+		"Nombre de equipos: " + this.getNumEquipos() + "\n" +
+		"Número de jornadas: " + this.getNumJornadas() + "\n";
+	}
 }

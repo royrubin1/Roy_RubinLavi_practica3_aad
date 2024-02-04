@@ -49,6 +49,9 @@ public class Partido {
 	@JoinColumn(name = "temporada_id")
 	private Temporada temporada;
 
+	public Partido() {
+		super();
+	}
 
 	public Partido(LocalDate fechaPartido, Equipo equipoLocal, Equipo equipoVisitante, int golesEquipoLocal,
 			int golesEquipoVistante, Temporada temporada) {

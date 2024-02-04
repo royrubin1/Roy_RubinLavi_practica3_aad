@@ -15,7 +15,7 @@ import jakarta.persistence.EntityManager;
 
 public abstract class GenericDAOImpl<T> implements DAO<T> {
 
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	public GenericDAOImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;

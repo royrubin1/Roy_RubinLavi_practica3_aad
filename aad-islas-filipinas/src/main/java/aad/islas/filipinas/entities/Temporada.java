@@ -29,6 +29,10 @@ public class Temporada {
 	
 	@OneToMany(mappedBy = "temporada")
 	private List<Partido> partidos;
+	
+	public Temporada() {
+		super();
+	}
 
 	public Temporada(int anoLiga, List<Partido> partidos) {
 		this.anoLiga = anoLiga;

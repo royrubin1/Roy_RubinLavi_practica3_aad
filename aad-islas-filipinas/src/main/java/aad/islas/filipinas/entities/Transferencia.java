@@ -43,6 +43,10 @@ public class Transferencia {
 	@Column(name = "transfer_date")
 	@Temporal(TemporalType.DATE)
 	private LocalDate fechaTransferencia;
+	
+	public Transferencia() {
+		super();
+	}
 
 	public Transferencia(Jugador jugador, Equipo delEquipo, Equipo alEquipo, LocalDate transferDate) {
 		super();
@@ -88,4 +92,8 @@ public class Transferencia {
 		return id;
 	}
 	
+	@Override
+	public String toString() {
+		return "Transferencia: " + this.getId() + ", del equipo: " + this.getDelEquipo().getNombreEquipo() + " al equipo: " + this.getAlEquipo().getNombreEquipo() + " del jugador: " + this.getJugador().getNombreJugador();
+	}
 }

@@ -1,5 +1,6 @@
 package aad.islas.filipinas.main;
 
+import aad.islas.filipinas.consultas.ConsultasCompeticion;
 import aad.islas.filipinas.entities.Competicion;
 import aad.islas.filipinas.entities.Temporada;
 import aad.islas.filipinas.generacion.GenerarJugadores;
@@ -39,6 +40,8 @@ public class SimulacionMain {
 		
 		GenerarTransferencia.generarTransferenciasAleatorias(entityManager, 10);
 		
-		CompeticionVisualizacion.visualizar(entityManager);
+		//CompeticionVisualizacion.visualizar(entityManager);
+		
+		ConsultasCompeticion.consulta(entityManager);
 	}
 }

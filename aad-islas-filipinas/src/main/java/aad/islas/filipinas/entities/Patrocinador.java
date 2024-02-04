@@ -31,6 +31,10 @@ public class Patrocinador {
 	@ManyToMany(mappedBy = "patrocinadores", cascade = CascadeType.PERSIST)
     private List<Equipo> equipos;
 
+	public Patrocinador() {
+		super();
+	}
+
 	public Patrocinador(String nombrePatrocinador) {
 		this.nombrePatrocinador = nombrePatrocinador;
 		this.equipos = new ArrayList<Equipo>();
@@ -58,6 +62,11 @@ public class Patrocinador {
 	
 	public void addEquipo(Equipo equipo) {
 	    this.equipos.add(equipo);
+	}
+	
+	@Override
+	public String toString() {
+		return "Patrocinador: " + this.nombrePatrocinador;
 	}
 	
 }

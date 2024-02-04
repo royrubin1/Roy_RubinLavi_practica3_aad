@@ -25,6 +25,10 @@ public class Estadio {
 
 	@OneToOne(mappedBy = "estadio", cascade = CascadeType.ALL)
 	private Equipo equipo;
+	
+	public Estadio() {
+		super();
+	}
 
 	public Estadio(String nombre, Equipo equipo) {
 		this.nombre = nombre;
